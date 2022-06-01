@@ -1,0 +1,111 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px 10px !important;
+  gap: 10px;
+  border-bottom: 2px solid lightgrey;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  color: rgba(41, 41, 41, 1);
+  gap: 5px;
+  .post-user-name {
+    margin: 0px 10px;
+    color: rgba(41, 41, 41, 1);
+  }
+}
+.post-avatar {
+  border-radius: 50%;
+  margin: 10px;
+  width: 30px;
+  height: 30px;
+}
+.post-img {
+  width: 200px;
+  height: 140px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+.post-main {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 140px;
+  gap: 30px;
+  .post-desc {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    // gap: 10px;
+    .post-title {
+      margin: 10px 0;
+      font-size: 22px;
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}
+.post-footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 100px;
+  margin-top: 20px;
+}
+.post-info {
+  display: flex;
+  .post-category {
+    border-radius: 25px;
+    padding: 3px 15px;
+    background-color: rgba(209, 209, 209, 0.712);
+    font-size: 15px;
+  }
+  .post-readTime {
+    margin: 0 10px;
+    color: rgb(133, 131, 131);
+  }
+}
+
+.story-saved-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.listsBookmark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  width: 200px;
+  bottom: -150%;
+  border: 2px solid #e6e6e6;
+  background-color: white;
+  z-index: 10;
+}
+
+.createNewListBtn {
+  width: 100%;
+  border: none;
+  border-top: 2px solid black;
+  padding: 10px 0;
+  cursor: pointer;
+  color: #1a8917;
+  background-color: #fff;
+}
+
+// .post
+.post-readTime {
+  background-color: transparent !important;
+}

@@ -1,0 +1,24 @@
+.lists-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fafafa;
+  padding: 15px;
+  border: 1px solid #e6e6e6;
+}
+
+.lists-card__title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.wiev__lists-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}

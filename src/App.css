@@ -1,38 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Macondo&family=Montserrat&family=PT+Sans&display=swap");
+
 .App {
-  text-align: center;
+  font-family: "Indie Flower", cursive;
+  font-family: "Macondo", cursive;
+  font-family: "Montserrat", sans-serif;
+  font-family: "PT Sans", sans-serif;
+}
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #8f54a0 #e8e8e8;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+*::-webkit-scrollbar-track {
+  background: #e8e8e8;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+*::-webkit-scrollbar-thumb {
+  background-color: #8f54a0;
+  border-radius: 20px;
+  border: 3px solid #ffffff;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a {
+  text-decoration: none;
+  color: black;
 }

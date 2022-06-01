@@ -1,0 +1,30 @@
+.write-navbar {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px auto;
+}
+
+.write__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.publish-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.inputs-wrapper {
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  input {
+    width: 100%;
+  }
+}

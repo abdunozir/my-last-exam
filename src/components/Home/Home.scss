@@ -1,0 +1,40 @@
+.Home {
+  max-width: 900px;
+  width: 90%;
+  height: 100vh;
+  // overflow: auto;
+}
+.Home__container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  .topics-menue {
+    font-size: 25px;
+    font-weight: 300;
+  }
+}
+
+.topics-container-home {
+  width: 500px;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 4px;
+}
+
+.recomendeds-title-home {
+  margin: 20px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  gap: 20px;
+  border-bottom: 2px solid #e6e6e6;
+  p {
+    cursor: pointer;
+  }
+}

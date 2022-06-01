@@ -1,0 +1,34 @@
+.writeText {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  //   padding-top: 100px;
+}
+
+.inputs-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputTitle {
+  margin-bottom: 20px;
+  font-size: 30px;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  letter-spacing: 2px;
+}
+.inputbody {
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
