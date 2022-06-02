@@ -9,6 +9,10 @@ import SavedDrop from "./SavedDrop/SavedDrop";
 import { Link } from "react-router-dom";
 
 function RecomendedPosts({ storyObj, el, Lists, setLists, opennewlistmodal }) {
+
+
+
+  
   let [isopenList, setIsopenList] = useState(false);
   let refBookmark = useRef(null);
   let saveLists = (e) => {
@@ -61,7 +65,7 @@ function RecomendedPosts({ storyObj, el, Lists, setLists, opennewlistmodal }) {
         </div>
         <div className="story-saved-icons">
           <SavedDrop el={el} Lists={Lists} setLists={setLists} />
-
+ 
           <IconButton aria-label="delete" size="large">
             <MoreHorizIcon fontSize="inherit" />
           </IconButton>

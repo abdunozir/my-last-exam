@@ -11,15 +11,17 @@ export default function SavedDrop({ Lists, setLists, el }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   let [savedBookMark, setSavedBookMark] = React.useState(true);
-  const handleClick = (event) => {
+  const handleClick = (e) => {
     setSavedBookMark(false);
     if (savedBookMark) {
-      setAnchorEl(event.currentTarget);
+      setAnchorEl(e.currentTarget);
       Lists.map((ele) => {
-        if (ele.listName === event.target.innerText) {
+        if (ele.listName === e.target.id) {
           ele.lists.push(el);
         }
         ele.lists.push(el);
+
+        console.log(e.target.id);
       });
     }
   };
@@ -54,12 +56,14 @@ export default function SavedDrop({ Lists, setLists, el }) {
       >
         {Lists.map((el, i) => {
           return (
-            <MenuItem key={i} onClick={handleClick}>
+            <MenuItem key={i} id={el.listName} onClick={handleClick}>
               {el.listName}
             </MenuItem>
           );
         })}
-        <MenuItem onClick={handleClick}>Creat a new category</MenuItem>
+        <MenuItem id="Creat" onClick={handleClick}>
+          Creat a new category
+        </MenuItem>
       </Menu>
     </div>
   );

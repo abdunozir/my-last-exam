@@ -8,7 +8,7 @@ import "./Replyed.scss";
 //import styles ?
 import React, { useRef, useState } from "react";
 
-function Replyed({ el }) {
+function Replyed({ el, user }) {
   let comment_dots_icon = {
     fontSize: "35px",
   };
@@ -34,6 +34,7 @@ function Replyed({ el }) {
   };
 
   let [openreplyInput, setOpenreplyInput] = useState(false);
+  let [likeReply, setlikeReply] = useState(Math.floor(Math.random() * 100));
   console.log(el);
   return (
     <div className="reply-tocomment">
@@ -45,7 +46,7 @@ function Replyed({ el }) {
             sx={{ width: 40, height: 40 }}
           />
           <div>
-            <h4>{el.userName}</h4>
+            <h4>{user.userName}</h4>
             <p>Last seen recently</p>
           </div>
         </div>
@@ -72,10 +73,13 @@ function Replyed({ el }) {
       <div className="comment-footer">
         <div className="comment-functions">
           <div className="comment-like-icon">
-            <IconButton aria-label="add to shopping cart">
+            <IconButton
+              onClick={() => setlikeReply(likeReply + 1)}
+              aria-label="add to shopping cart"
+            >
               <FavoriteBorderIcon sx={comment_dots_icon_like} />
             </IconButton>
-            <p>{el.like}</p>
+            <p>{likeReply}</p>
           </div>
           <div className="hide-comment-reply">
             <IconButton aria-label="add to shopping cart">

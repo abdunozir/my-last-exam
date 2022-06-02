@@ -6,11 +6,18 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import HomeIcon from "@mui/icons-material/Home";
 import ListAltIcon from "@mui/icons-material/ListAlt";
-import React from "react";
+import React, { useState } from "react";
 import RateReviewIcon from "@mui/icons-material/RateReview";
-import { Link } from "react-router-dom";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
+  let navigate = useNavigate();
+  let [iconHomechange, setIconHome] = useState(true);
+  let iconHome = () => {
+    setIconHome(true);
+    navigate("/");
+  };
   return (
     <div className="header">
       <div>
@@ -21,8 +28,8 @@ function Header() {
       <div className="navbar">
         <Link className="icons" to={"/"}>
           <Tooltip title="Home" placement="right">
-            <IconButton size="large">
-              <HomeIcon />
+            <IconButton onClick={iconHome} size="large">
+              {iconHomechange ? <HomeOutlinedIcon /> : <HomeIcon />}
             </IconButton>
           </Tooltip>
         </Link>

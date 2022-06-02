@@ -54,6 +54,7 @@ function Login({ setUser }) {
             id="Email"
             label="Email"
             variant="standard"
+            type={"email"}
             onChange={signUpInputValueHandler}
           />
           <Button variant="contained" type="submit">

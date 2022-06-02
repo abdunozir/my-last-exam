@@ -3,11 +3,11 @@ import EachPostBody from "./EachPostBody/EachPostBody";
 import LikeCommentsInPost from "./LikeCommentsInPost/LikeCommentsInPost";
 import EachPostHeader from "./EachPostHeader/EachPostHeader";
 
-function EachPost({ storyObj, setStoryObj, Lists }) {
+function EachPost({ storyObj, setStoryObj, Lists, user }) {
   return (
     <div className="eachPost">
       <EachPostHeader storyObj={storyObj} Lists={Lists} />
-      <EachPostBody storyObj={storyObj} />
+      <EachPostBody user={user} storyObj={storyObj} />
       {/* <LikeCommentsInPost storyObj={storyObj} setStoryObj={setStoryObj} /> */}
     </div>
   );

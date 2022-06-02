@@ -8,9 +8,12 @@
   align-items: flex-start;
   justify-content: flex-start;
   //   padding-top: 100px;
+  top: 0;
+  z-index: 100000;
 }
 
 .inputs-wrapper {
+  width: 900px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,4 +34,18 @@
   padding: 0 10px;
   font-size: 16px;
   margin-bottom: 10px;
+}
+
+.codex-editor--empty {
+  display: none !important;
+}
+.ce-toolbar__settings-btn {
+  display: none;
+}
+
+.cdx-block {
+  font-size: 30px;
+}
+.ce-toolbar__plus {
+  font-size: 70px;
 }

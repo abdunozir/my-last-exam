@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import LikeCommentsInPost from "../LikeCommentsInPost/LikeCommentsInPost";
 import "./EachPostBody.scss";
 
-function EachPostBody({ storyObj }) {
+function EachPostBody({ storyObj, user }) {
   let location = useLocation();
   console.log(location.pathname.split("/").at(-1));
   return (
@@ -20,7 +20,7 @@ function EachPostBody({ storyObj }) {
               <div className="post-footer">
                 <p>{el.category}</p> <p>{el.type}</p>
               </div>
-              <LikeCommentsInPost el={el.comments} />
+              <LikeCommentsInPost user={user} el={el.comments} />
             </div>
           );
         }

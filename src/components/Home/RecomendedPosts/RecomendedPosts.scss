@@ -109,3 +109,28 @@
 .post-readTime {
   background-color: transparent !important;
 }
+
+@media (max-width: 800px) {
+  .post-main {
+    height: 90px;
+    align-items: flex-start;
+  }
+  .post-img {
+    height: 100%;
+  }
+  .post-desc {
+    h2 {
+      width: 400px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    p {
+      display: none;
+    }
+  }
+
+  .post-footer {
+    margin-top: 10px !important;
+  }
+}

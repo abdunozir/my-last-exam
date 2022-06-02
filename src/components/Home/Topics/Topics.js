@@ -1,9 +1,11 @@
 import "./Topics.scss";
 
-function Topics({ type }) {
+function Topics({ type, filterFunc }) {
   return (
     <div className="topics-container-header">
-      <p>{type}</p>
+      <p onClick={filterFunc} id={type}>
+        {type}
+      </p>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import Avatar from "@mui/material/Avatar";
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
 
-function ReplyComment({ el, setOpenreplyInput, openreplyInput }) {
+function ReplyComment({ el, setOpenreplyInput, openreplyInput, user }) {
   let styleCommenButton = {
     backgroundColor: "#BBDCBA",
     borderRadius: "20px",
@@ -42,7 +42,7 @@ function ReplyComment({ el, setOpenreplyInput, openreplyInput }) {
   // opent reply input
   //   let [openreplyInput, setOpenreplyInput] = useState(false);
   return (
-    <div className="comment-reply-container">
+    <div className="comment-reply-container  comment-reply-container-addition">
       <div className="comment-input">
         <div
           className="comment-author-account"
@@ -53,7 +53,7 @@ function ReplyComment({ el, setOpenreplyInput, openreplyInput }) {
             src="/static/images/avatar/1.jpg"
             sx={{ width: 40, height: 40 }}
           />
-          <h4>Supperminded</h4>
+          <h4>{user.userName}</h4>
         </div>
         <textarea
           onChange={replyTyping}
@@ -76,7 +76,12 @@ function ReplyComment({ el, setOpenreplyInput, openreplyInput }) {
             <i>A</i>
           </div>
           <div className={`commentBtn-submit `}>
-            <Button variant="text">Cancel</Button>
+            <Button
+              variant="text"
+              onClick={() => setOpenreplyInput(!openreplyInput)}
+            >
+              Cancel
+            </Button>
             <Button
               variant="contained"
               onClick={replyCommentAdd}

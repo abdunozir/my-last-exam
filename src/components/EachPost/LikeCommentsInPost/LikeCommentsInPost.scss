@@ -1,23 +1,26 @@
 .likeCommnet-container {
   position: fixed;
   bottom: 20px;
-  left: 35%;
+  left: 40%;
   background-color: white;
 }
 
 .EZDrawer__container {
-  width: 30% !important;
+  width: 40% !important;
   overflow-y: scroll;
+  z-index: 100011;
 }
 
 @media (max-width: 1200px) {
   .EZDrawer__container {
     width: 50% !important;
+    z-index: 10001;
   }
 }
 @media (max-width: 700px) {
   .EZDrawer__container {
     width: 100% !important;
+    z-index: 100011;
   }
 }
 

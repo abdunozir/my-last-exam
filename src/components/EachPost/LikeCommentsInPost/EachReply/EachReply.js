@@ -11,7 +11,7 @@ import ReplyComment from "../ReplyComment/ReplyComment";
 import Replyed from "../Replyed/Replyed";
 // import ReplyComment from "./ReplyComment/ReplyComment";
 
-function EachReply({ el }) {
+function EachReply({ el, user }) {
   let comment_dots_icon = {
     fontSize: "35px",
   };
@@ -38,7 +38,7 @@ function EachReply({ el }) {
 
   let [openreplyInput, setOpenreplyInput] = useState(false);
   let [hideReply, setHideReply] = useState(true);
-
+  let [likecomment, setlikecomment] = useState(Math.floor(Math.random() * 100));
   return (
     <div className="comment-written" id={el.id}>
       <div className="comment-writtenby">
@@ -76,10 +76,13 @@ function EachReply({ el }) {
       <div className="comment-footer">
         <div className="comment-functions">
           <div className="comment-like-icon">
-            <IconButton aria-label="add to shopping cart">
+            <IconButton
+              onClick={() => setlikecomment((likecomment += 1))}
+              aria-label="add to shopping cart"
+            >
               <FavoriteBorderIcon sx={comment_dots_icon_like} />
             </IconButton>
-            <p>{el.like}</p>
+            <p>{likecomment}</p>
           </div>
           <div
             className="hide-comment-reply"
@@ -100,13 +103,14 @@ function EachReply({ el }) {
           el={el.replyes}
           setOpenreplyInput={setOpenreplyInput}
           openreplyInput={openreplyInput}
+          user={user}
         />
       ) : (
         ""
       )}
       {el.replyes.map((el, i) => {
         console.log(el);
-        return <>{hideReply ? <Replyed key={i} el={el} /> : ""}</>;
+        return <>{hideReply ? <Replyed user={user} key={i} el={el} /> : ""}</>;
       })}
     </div>
   );

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
 import "./Home.scss";
 import RecomendedPosts from "./RecomendedPosts/RecomendedPosts";
 import Topics from "./Topics/Topics";
@@ -11,14 +12,32 @@ function HomeMain({
   setLists,
   Lists,
 }) {
+  let [filterState, setFilterState] = useState("all");
+  let filterFunc = (e) => {
+    console.log(e.target.id);
+    setFilterState(e.target.id);
+  };
+
   return (
     <div className="Home">
       <div className="Home__container">
         <p className="topics-menue">YOUR TOPICS : </p>
         <div className="topics-container-home">
           {storyObj.map((el) => {
-            return <Topics storyObj={storyObj} key={el.id} type={el.type} />;
+            return (
+              <Topics
+                filterFunc={filterFunc}
+                storyObj={storyObj}
+                key={el.id}
+                type={el.type}
+              />
+            );
           })}
+          <div className="topics-container-header">
+            <p onClick={filterFunc} id="all">
+              all
+            </p>
+          </div>
         </div>
       </div>
       <div className="recomendeds-title-home">
@@ -26,16 +45,18 @@ function HomeMain({
         <p>Recomended</p>
       </div>
       {storyObj.map((el, i) => {
-        return (
-          <RecomendedPosts
-            key={i}
-            storyObj={storyObj}
-            el={el}
-            setLists={setLists}
-            Lists={Lists}
-            opennewlistmodal={opennewlistmodal}
-          />
-        );
+        if (el.type === filterState || filterState === "all") {
+          return (
+            <RecomendedPosts
+              key={i}
+              storyObj={storyObj}
+              el={el}
+              setLists={setLists}
+              Lists={Lists}
+              opennewlistmodal={opennewlistmodal}
+            />
+          );
+        }
       })}
     </div>
   );

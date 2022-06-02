@@ -12,11 +12,12 @@ import React, { useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import EachReply from "./EachReply/EachReply";
 
-function LikeCommentsInPost({ storyObj, setStoryObj, el }) {
+function LikeCommentsInPost({ storyObj, setStoryObj, el, user }) {
   // like comment and dot icons style
   let styleButtonsGroupLikeComment = {
     backgroundColor: "white",
     color: " #8c8c8c",
+    borderRadius: "20px",
     borderColor: "none",
     "&:hover": {
       backgroundColor: "white",
@@ -38,7 +39,9 @@ function LikeCommentsInPost({ storyObj, setStoryObj, el }) {
   let location = useLocation();
 
   // like icon click event
+  let [like, setLike] = useState(Math.floor(Math.random() * 100));
   const LikePost = () => {
+    setLike((like += 1));
     // console.log(location.pathname.split("/").at(-1));
   };
 
@@ -77,7 +80,7 @@ function LikeCommentsInPost({ storyObj, setStoryObj, el }) {
     setCommenteSample({
       id: Math.floor(Math.random() * 1000),
       img: "https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324_3x4.jpg",
-      userName: "Catty",
+      userName: user.userName,
       comments_text: e.target.value,
       like: 0,
       replyes: [],
@@ -105,9 +108,7 @@ function LikeCommentsInPost({ storyObj, setStoryObj, el }) {
           startIcon={<ThumbUpOutlinedIcon />}
           sx={styleButtonsGroupLikeComment}
         >
-          {el.map((el1) => {
-            return el1.like;
-          })}
+          {like}
         </Button>
         <Button
           onClick={toggleDrawer}
@@ -135,7 +136,7 @@ function LikeCommentsInPost({ storyObj, setStoryObj, el }) {
                 src="/static/images/avatar/1.jpg"
                 sx={{ width: 40, height: 40 }}
               />
-              <h4>Supperminded</h4>
+              <h4>{user.userName}</h4>
             </div>
             <textarea
               onChange={commentTyping}
@@ -173,7 +174,7 @@ function LikeCommentsInPost({ storyObj, setStoryObj, el }) {
           </div>
           <div className="whritten-comments-container">
             {el.map((el, i) => {
-              return <EachReply el={el} key={i} />;
+              return <EachReply el={el} user={user} key={i} />;
             })}
           </div>
         </div>
