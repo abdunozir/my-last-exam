@@ -3,6 +3,15 @@
   bottom: 20px;
   left: 40%;
   background-color: white;
+  border-radius: 20px;
+}
+
+@media (max-width: 1200px) {
+  .likeCommnet-container {
+    left: 10%;
+    bottom: 10%;
+    background-color: BLACK;
+  }
 }
 
 .EZDrawer__container {
@@ -25,6 +34,9 @@
 }
 
 .title-comment-pannel {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   margin: 10px 20px;
   font-size: 20px;
   line-height: 24px;
@@ -51,14 +63,14 @@
     border: none;
     outline: none;
     padding: 10px;
-    font-size: 20px;
+    font-size: 18px;
     transition: all 0.5s linear;
     resize: none;
   }
 }
 
 .not-cancelet-comment {
-  height: 250px;
+  height: 150px;
   transition: all 0.5s linear;
 }
 .comment-input-cenceled {

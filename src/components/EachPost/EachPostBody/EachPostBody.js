@@ -1,17 +1,31 @@
+import { useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import LikeCommentsInPost from "../LikeCommentsInPost/LikeCommentsInPost";
 import "./EachPostBody.scss";
-
 function EachPostBody({ storyObj, user }) {
   let location = useLocation();
-  console.log(location.pathname.split("/").at(-1));
+  let openImageRef = useRef(null);
+  let [openImageState, setOpenImageState] = useState(1);
+  let openImage = (e) => {
+    console.log(openImageRef.current.id);
+    if (openImageState === 2) {
+      openImageRef.current.id = "post-image";
+      setOpenImageState(2);
+    } else {
+      setOpenImageState(1);
+    }
+  };
   return (
     <div className="post-wrapper">
       {storyObj.map((el, i) => {
         if (el.id === +location.pathname.split("/").at(-1)) {
           return (
             <div key={i} className="post-body-container">
-              <div className="post-image">
+              <div
+                onClick={openImage}
+                ref={openImageRef}
+                className="post-image"
+              >
                 <img src={el.img} alt="" />
               </div>
               <h1 className="post-title">{el.title}</h1>

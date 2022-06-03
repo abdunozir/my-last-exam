@@ -21,7 +21,6 @@ function HomeMain({
   return (
     <div className="Home">
       <div className="Home__container">
-        <p className="topics-menue">YOUR TOPICS : </p>
         <div className="topics-container-home">
           {storyObj.map((el) => {
             return (

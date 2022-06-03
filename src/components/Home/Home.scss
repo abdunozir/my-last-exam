@@ -3,12 +3,16 @@
   width: 90%;
   height: 100vh;
   // overflow: auto;
+  margin-bottom: 700px;
 }
 .Home__container {
+  width: 100p5;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 20px;
+  overflow: auto;
+
   .topics-menue {
     font-size: 25px;
     font-weight: 300;
@@ -16,8 +20,7 @@
 }
 
 .topics-container-home {
-  width: 500px;
-  overflow: auto;
+  width: auto;
   display: flex;
   align-items: center;
   justify-content: flex-start;

@@ -4,8 +4,6 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import Avatar from "@mui/material/Avatar";
 import "./Replyed.scss";
-// import component ?
-//import styles ?
 import React, { useRef, useState } from "react";
 
 function Replyed({ el, user }) {
@@ -35,7 +33,6 @@ function Replyed({ el, user }) {
 
   let [openreplyInput, setOpenreplyInput] = useState(false);
   let [likeReply, setlikeReply] = useState(Math.floor(Math.random() * 100));
-  console.log(el);
   return (
     <div className="reply-tocomment">
       <div className="comment-writtenby">

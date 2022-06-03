@@ -21,7 +21,6 @@ function RecomendedPosts({ storyObj, el, Lists, setLists, opennewlistmodal }) {
         element.listName === e.target.id.split("#")[0] &&
         e.target.checked === true
       ) {
-        console.log(storyObj);
         storyObj.map((li, i) => {
           if (li.id === +e.target.id.split("#")[1]) {
             element.lists.push(li);
@@ -33,7 +32,6 @@ function RecomendedPosts({ storyObj, el, Lists, setLists, opennewlistmodal }) {
   };
   let openList = () => {
     setIsopenList(!isopenList);
-
     refBookmark.current.style = {
       color: "red",
     };

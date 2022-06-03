@@ -19,26 +19,14 @@ function EachReply({ el, user }) {
     fontSize: "30px",
   };
 
-  // comment more and less ...
-  let [commentMoreText, setCommentMoreText] = useState(100);
-  let [commentMoreTextmore, setCommentMoreTextmore] = useState("...");
-  let [commentMoreTextless, setCommentMoreTextless] = useState("More");
-
-  let moreBtn = (max, e) => {
-    if (max === commentMoreText) {
-      setCommentMoreText(100);
-      setCommentMoreTextmore("...");
-      setCommentMoreTextless("More");
-    } else {
-      setCommentMoreText(max);
-      setCommentMoreTextmore("");
-      setCommentMoreTextless("Less");
-    }
-  };
-
   let [openreplyInput, setOpenreplyInput] = useState(false);
   let [hideReply, setHideReply] = useState(true);
   let [likecomment, setlikecomment] = useState(Math.floor(Math.random() * 100));
+  let [likeIconColor, setLikeIconColor] = useState(false);
+  let onClickLike = () => {
+    setlikecomment((likecomment += 1));
+    setLikeIconColor(true);
+  };
   return (
     <div className="comment-written" id={el.id}>
       <div className="comment-writtenby">
@@ -58,26 +46,14 @@ function EachReply({ el, user }) {
         </IconButton>
       </div>
       <div className="comment-body">
-        <p>
-          {el.comments_text.split("").slice(0, commentMoreText)}
-          {commentMoreTextmore}
-        </p>
-        {el.comments_text.split("").length > 100 ? (
-          <p
-            className="more-comment-text"
-            onClick={() => moreBtn(el.comments_text.split("").length)}
-          >
-            {commentMoreTextless}
-          </p>
-        ) : (
-          ""
-        )}
+        <p>{el.comments_text}</p>
       </div>
       <div className="comment-footer">
         <div className="comment-functions">
           <div className="comment-like-icon">
             <IconButton
-              onClick={() => setlikecomment((likecomment += 1))}
+              // color={`${likeIconColor ? "error" : ""}`}
+              onClick={onClickLike}
               aria-label="add to shopping cart"
             >
               <FavoriteBorderIcon sx={comment_dots_icon_like} />
@@ -91,7 +67,11 @@ function EachReply({ el, user }) {
             <IconButton aria-label="add to shopping cart">
               <ChatBubbleIcon />
             </IconButton>
-            <p>Hide replies</p>
+            {hideReply ? (
+              <p>Hide replies</p>
+            ) : (
+              <p>{el.replyes.length} replies</p>
+            )}
           </div>
         </div>
         <div className="reply-commnet" id={el.id}>
@@ -109,7 +89,6 @@ function EachReply({ el, user }) {
         ""
       )}
       {el.replyes.map((el, i) => {
-        console.log(el);
         return <>{hideReply ? <Replyed user={user} key={i} el={el} /> : ""}</>;
       })}
     </div>

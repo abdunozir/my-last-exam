@@ -9,14 +9,45 @@ import InsertLinkOutlinedIcon from "@mui/icons-material/InsertLinkOutlined";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import { useLocation } from "react-router-dom";
 import SavedDrop from "../../Home/RecomendedPosts/SavedDrop/SavedDrop";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { useState } from "react";
+import Tooltip from "@mui/material/Tooltip";
+import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
+import * as React from "react";
+import EachHeaderMore from "./EachHeaderMore/EachHeaderMore";
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 function EachPostHeader({ storyObj, Lists }) {
   let location = useLocation();
-  console.log(location.pathname.split("/").at(-1));
+  let [copiableText, setCopiableText] = useState("");
+  const [open, setOpen] = React.useState(false);
+  const handleClick = () => {
+    setOpen(true);
+    console.log(open);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+    console.log(open);
+  };
+
   return (
     <div className="EachpostHeader">
       {storyObj.map((el, i) => {
         if (el.id === +location.pathname.split("/").at(-1)) {
+          localStorage.setItem(
+            "text",
+            JSON.stringify({ title: el.title, body: el.storyBody })
+          );
           return (
             <div key={i} className="userinfo-eachpost">
               <Avatar
@@ -35,19 +66,52 @@ function EachPostHeader({ storyObj, Lists }) {
         }
       })}
       <div className="sotcial-media">
-        <div>
-          <IconButton aria-label="delete">
-            <TwitterIcon />
-          </IconButton>
-          <IconButton aria-label="delete">
-            <FacebookIcon />
-          </IconButton>
-          <IconButton aria-label="delete">
-            <LinkedInIcon />
-          </IconButton>
-          <IconButton aria-label="delete">
-            <InsertLinkOutlinedIcon />
-          </IconButton>
+        <div className="media-link">
+          <Tooltip title="Twitter link">
+            <IconButton className="link-header-post" aria-label="delete">
+              <TwitterIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Facebook link">
+            <IconButton className="link-header-post" aria-label="delete">
+              <FacebookIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="LinkedIn link">
+            <IconButton className="link-header-post" aria-label="delete">
+              <LinkedInIcon />
+            </IconButton>
+          </Tooltip>
+          <CopyToClipboard
+            text={
+              JSON.parse(localStorage.getItem("text")).title +
+              " </br> " +
+              JSON.parse(localStorage.getItem("text")).body
+            }
+            onCopy={() => {
+              handleClick();
+            }}
+          >
+            <Tooltip title="Click to copy post">
+              <IconButton className="link-header-post" aria-label="delete">
+                <InsertLinkOutlinedIcon />
+              </IconButton>
+            </Tooltip>
+          </CopyToClipboard>
+          <Snackbar
+            id="snackbar"
+            open={open}
+            autoHideDuration={500}
+            onClose={handleClose}
+          >
+            <Alert
+              onClose={handleClose}
+              severity="primary"
+              sx={{ width: "100%" }}
+            >
+              Copied !
+            </Alert>
+          </Snackbar>
         </div>
         <div className="eachPost-bookmark">
           {storyObj.map((el, i) => {
@@ -55,9 +119,7 @@ function EachPostHeader({ storyObj, Lists }) {
               return <SavedDrop Lists={Lists} key={i} el={el} />;
             }
           })}
-          <IconButton aria-label="delete">
-            <MoreHorizOutlinedIcon />
-          </IconButton>
+          <EachHeaderMore handleClick={handleClick} />
         </div>
       </div>
     </div>

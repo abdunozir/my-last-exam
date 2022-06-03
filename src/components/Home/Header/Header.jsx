@@ -21,40 +21,40 @@ function Header() {
   return (
     <div className="header">
       <div>
-        <Link to={"/"}>
+        <Link to={"/"} id="company">
           <img className="logo-img" src={logo} alt="ss" />
         </Link>
       </div>
       <div className="navbar">
-        <Link className="icons" to={"/"}>
+        <Link className="icons" id="Home" to={"/"}>
           <Tooltip title="Home" placement="right">
             <IconButton onClick={iconHome} size="large">
               {iconHomechange ? <HomeOutlinedIcon /> : <HomeIcon />}
             </IconButton>
           </Tooltip>
         </Link>
-        <Link className="icons" to={"/note"}>
+        <Link className="icons" id="Notification" to={"/note"}>
           <Tooltip title="Notification" placement="right">
             <IconButton size="large">
               <NotificationsNoneIcon />
             </IconButton>
           </Tooltip>
         </Link>
-        <Link className="icons" to={"/list"}>
+        <Link className="icons" id="Lists" to={"/list"}>
           <Tooltip title="Lists" placement="right">
             <IconButton size="large">
               <BookmarkBorderIcon />
             </IconButton>
           </Tooltip>
         </Link>
-        <Link className="icons" to={"/story"}>
+        <Link className="icons" id="Story" to={"/story"}>
           <Tooltip title="Story" placement="right">
             <IconButton size="large">
               <ListAltIcon />
             </IconButton>
           </Tooltip>
         </Link>
-        <Link className="icons header-pensil" to={"/writer"}>
+        <Link className="icons header-pensil" id="witePensil" to={"/writer"}>
           <Tooltip title="Write post" placement="right">
             <IconButton size="large">
               <RateReviewIcon />

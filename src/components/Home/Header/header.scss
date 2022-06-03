@@ -56,4 +56,78 @@
       margin-bottom: 0;
     }
   }
+  .header-pensil {
+    border: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .header {
+    width: 100%;
+    height: 70px;
+    justify-content: space-around;
+  }
+  .navbar {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+  }
+  #Home {
+    svg {
+      font-size: 35px;
+    }
+  }
+  #Notification {
+    svg {
+      font-size: 35px;
+    }
+  }
+
+  #Lists {
+    svg {
+      font-size: 35px;
+    }
+  }
+  #Story {
+    svg {
+      font-size: 35px;
+    }
+  }
+  #witePensil {
+    svg {
+      font-size: 35px;
+    }
+  }
+  #company {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  #Notification {
+    display: none;
+  }
+  #Story {
+    display: none;
+  }
+
+  #witePensil {
+    svg {
+      font-size: 30px;
+    }
+  }
+  #Lists {
+    svg {
+      font-size: 30px;
+    }
+  }
+  #company {
+    width: 40px;
+    height: 40px;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
 }

@@ -4,10 +4,10 @@ import Button from "@mui/material/Button";
 
 function ReplyComment({ el, setOpenreplyInput, openreplyInput, user }) {
   let styleCommenButton = {
-    backgroundColor: "#BBDCBA",
+    backgroundColor: "#1A8917",
     borderRadius: "20px",
     "&:hover": {
-      backgroundColor: "#BBDCBA",
+      backgroundColor: "#1A8917",
     },
   };
 
@@ -17,16 +17,22 @@ function ReplyComment({ el, setOpenreplyInput, openreplyInput, user }) {
   // let [cancelReaplyCommentInput, setCancelReaplyCommentInput] = useState("");
 
   let replyTyping = (e) => {
-    e.target.classList.add("commenReplying");
-    setCancelReaplyComment(false);
-    setCommentReplySample({
-      id: Math.floor(Math.random() * 1000),
-      img: "https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324_3x4.jpg",
-      userName: "Catty",
-      comments_text: e.target.value,
-      like: 0,
-      replyes: [],
-    });
+    if (!(e.target.value === "")) {
+      console.log(e.target.value === "");
+      e.target.classList.add("commenReplying");
+      setCancelReaplyComment(false);
+      setCommentReplySample({
+        id: Math.floor(Math.random() * 1000),
+        img: "https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324_3x4.jpg",
+        userName: "Catty",
+        comments_text: e.target.value,
+        like: 0,
+        replyes: [],
+      });
+    } else {
+      e.target.classList.remove("commenReplying");
+      setCancelReaplyComment(true);
+    }
   };
 
   let replyCommentAdd = () => {
@@ -35,9 +41,7 @@ function ReplyComment({ el, setOpenreplyInput, openreplyInput, user }) {
     }
     setCancelReaplyComment(true);
     setOpenreplyInput(!openreplyInput);
-    console.log(el);
   };
-  console.log(el);
 
   // opent reply input
   //   let [openreplyInput, setOpenreplyInput] = useState(false);

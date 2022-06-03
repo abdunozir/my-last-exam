@@ -11,7 +11,9 @@ import "react-modern-drawer/dist/index.css";
 import React, { useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import EachReply from "./EachReply/EachReply";
-
+import { useWindowScroll } from "react-use";
+import IconButton from "@mui/material/IconButton";
+import DisabledByDefaultIcon from "@mui/icons-material/DisabledByDefault";
 function LikeCommentsInPost({ storyObj, setStoryObj, el, user }) {
   // like comment and dot icons style
   let styleButtonsGroupLikeComment = {
@@ -26,14 +28,12 @@ function LikeCommentsInPost({ storyObj, setStoryObj, el, user }) {
   };
 
   let styleCommenButton = {
-    backgroundColor: "##1A8917",
+    backgroundColor: "#2cd126",
     borderRadius: "20px",
     "&:hover": {
-      backgroundColor: "#1A8917",
+      backgroundColor: "#2cd126",
     },
   };
-
-  // in comments author dots icon
 
   // useLocation used
   let location = useLocation();
@@ -68,14 +68,11 @@ function LikeCommentsInPost({ storyObj, setStoryObj, el, user }) {
 
   // comment input typing onchange event
   let commentTyping = (e) => {
-    setCancelComment(false);
-    let styleCommenButton = {
-      backgroundColor: "##1A8917",
-      borderRadius: "20px",
-      "&:hover": {
-        backgroundColor: "#1A8917",
-      },
-    };
+    if (!(e.target.value === "")) {
+      setCancelComment(false);
+    } else {
+      setCancelComment(true);
+    }
 
     setCommenteSample({
       id: Math.floor(Math.random() * 1000),
@@ -94,17 +91,19 @@ function LikeCommentsInPost({ storyObj, setStoryObj, el, user }) {
     }
     commentTextareRef.current.value = null;
   };
-
+  let { y: pageYOffset } = useWindowScroll();
   // return component function
   return (
     <div className="likeCommnet-container">
       <ButtonGroup
+        id="responsivecoment"
         sx={styleButtonsGroupLikeComment}
         variant="contained"
         aria-label="outlined primary button group"
       >
         <Button
           onClick={LikePost}
+          color="error"
           startIcon={<ThumbUpOutlinedIcon />}
           sx={styleButtonsGroupLikeComment}
         >
@@ -124,6 +123,10 @@ function LikeCommentsInPost({ storyObj, setStoryObj, el, user }) {
         <div className="comment-container-canvas">
           <div className="title-comment-pannel">
             <h4>Responses ( {el.length} )</h4>
+
+            <IconButton onClick={toggleDrawer}>
+              <DisabledByDefaultIcon />
+            </IconButton>
           </div>
 
           <div className="comment-input">

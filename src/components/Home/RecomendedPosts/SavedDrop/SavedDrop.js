@@ -2,7 +2,7 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-
+import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
 import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
 import BookmarkAddedIcon from "@mui/icons-material/BookmarkAdded";
@@ -31,20 +31,22 @@ export default function SavedDrop({ Lists, setLists, el }) {
 
   return (
     <div>
-      <IconButton
-        id="basic-button"
-        aria-controls={open ? "basic-menu" : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? "true" : undefined}
-        onClick={handleClick}
-        size="large"
-      >
-        {savedBookMark ? (
-          <BookmarkAddIcon fontSize="inherit" />
-        ) : (
-          <BookmarkAddedIcon fontSize="inherit" />
-        )}
-      </IconButton>
+      <Tooltip title="Click to save list">
+        <IconButton
+          id="basic-button"
+          aria-controls={open ? "basic-menu" : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? "true" : undefined}
+          onClick={handleClick}
+          size="large"
+        >
+          {savedBookMark ? (
+            <BookmarkAddIcon fontSize="inherit" />
+          ) : (
+            <BookmarkAddedIcon fontSize="inherit" />
+          )}
+        </IconButton>
+      </Tooltip>
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}

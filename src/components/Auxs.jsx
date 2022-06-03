@@ -178,8 +178,6 @@ function Main() {
               Lists={Lists}
               storyObj={storyObj}
               setStoryObj={setStoryObj}
-               
-              
             />
           }
         />
