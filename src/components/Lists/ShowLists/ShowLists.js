@@ -26,7 +26,7 @@ function ShowLists(props) {
           </p>
         </div>
       </div>
-      <div>
+      <div className="story-list-img-container">
         <img src={img} alt="" />
       </div>
     </div>

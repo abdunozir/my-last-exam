@@ -13,7 +13,6 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 700,
   bgcolor: "background.paper",
-  //   border: "2px solid #000",
   borderRadius: "10px",
   boxShadow: 24,
   p: 4,
@@ -40,7 +39,6 @@ function ListsModal({ isopened, setLists, Lists, creatListButtonStyle }) {
   }
   let createListHandler = (e) => {
     setLists([...Lists, listTitle]);
-    console.log(Lists);
     handleClose();
   };
 

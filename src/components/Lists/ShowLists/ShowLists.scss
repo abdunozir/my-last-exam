@@ -22,3 +22,45 @@
   justify-content: center;
   gap: 30px;
 }
+
+@media (max-width: 900px) {
+  .lists-card {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .lists-card__title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 650px) {
+  .lists-card {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .lists-card__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .story-list-img-container {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 330px) {
+  .wiev__lists-card {
+    font-size: 10px;
+    flex-direction: column-reverse;
+  }
+}

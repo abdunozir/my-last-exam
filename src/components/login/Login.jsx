@@ -32,7 +32,7 @@ function Login({ setUser }) {
   useEffect(() => {
     localStorage.getItem("login") ? setIsLogged(true) : setIsLogged(false);
     setUser(JSON.parse(localStorage.getItem("login")));
-  });
+  },[]);
 
   return (
     <div className="Login-container" id={`${islogged ? "closelogin" : ""}`}>

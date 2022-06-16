@@ -5,14 +5,14 @@ import "./EachPostBody.scss";
 function EachPostBody({ storyObj, user }) {
   let location = useLocation();
   let openImageRef = useRef(null);
-  let [openImageState, setOpenImageState] = useState(1);
+  let [openImageState, setOpenImageState] = useState(false);
   let openImage = (e) => {
-    console.log(openImageRef.current.id);
-    if (openImageState === 2) {
+    console.log("openImageRef.current.id");
+    setOpenImageState(!openImageState);
+    if (openImageState) {
       openImageRef.current.id = "post-image";
-      setOpenImageState(2);
     } else {
-      setOpenImageState(1);
+      openImageRef.current.id = "";
     }
   };
   return (

@@ -1,0 +1,28 @@
+.content-input-container {
+  width: 400px;
+}
+.content {
+  width: 400px;
+  border: none;
+  border: 1px solid white;
+  outline: none;
+  caret-color: black;
+  padding: 20px;
+  position: relative;
+  &:focus {
+    border: 1px solid white;
+  }
+}
+
+.hello {
+  display: none;
+}
+
+.editing-btns-wrapper {
+  display: none;
+  background-color: beige;
+}
+
+#editing-btns-wrapper {
+  display: block;
+}

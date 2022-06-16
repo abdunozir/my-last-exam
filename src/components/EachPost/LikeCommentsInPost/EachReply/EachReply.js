@@ -28,7 +28,7 @@ function EachReply({ el, user }) {
     setLikeIconColor(true);
   };
   return (
-    <div className="comment-written" id={el.id}>
+    <div className="comment-written" id={el.id} key={el.id}>
       <div className="comment-writtenby">
         <div className="comment-writtenby-profile">
           <Avatar
@@ -46,7 +46,7 @@ function EachReply({ el, user }) {
         </IconButton>
       </div>
       <div className="comment-body">
-        <p>{el.comments_text}</p>
+        <p className="comment-body-text">{el.comments_text}</p>
       </div>
       <div className="comment-footer">
         <div className="comment-functions">
@@ -89,7 +89,9 @@ function EachReply({ el, user }) {
         ""
       )}
       {el.replyes.map((el, i) => {
-        return <>{hideReply ? <Replyed user={user} key={i} el={el} /> : ""}</>;
+        return (
+          <div key={i}>{hideReply ? <Replyed user={user} el={el} /> : ""}</div>
+        );
       })}
     </div>
   );

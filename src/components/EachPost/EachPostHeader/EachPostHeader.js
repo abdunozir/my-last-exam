@@ -28,16 +28,13 @@ function EachPostHeader({ storyObj, Lists }) {
   const [open, setOpen] = React.useState(false);
   const handleClick = () => {
     setOpen(true);
-    console.log(open);
   };
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
     }
-
     setOpen(false);
-    console.log(open);
   };
 
   return (
@@ -104,11 +101,7 @@ function EachPostHeader({ storyObj, Lists }) {
             autoHideDuration={500}
             onClose={handleClose}
           >
-            <Alert
-              onClose={handleClose}
-              severity="primary"
-              sx={{ width: "100%" }}
-            >
+            <Alert onClose={handleClose} sx={{ width: "100%" }}>
               Copied !
             </Alert>
           </Snackbar>
